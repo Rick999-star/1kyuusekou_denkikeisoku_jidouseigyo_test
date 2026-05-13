@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)file:///C:/Users/shoht/Downloads/denki_test_system.html -->
-<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>電気計測・自動制御 テストシステム</title>
 <style>
@@ -308,7 +308,7 @@
     <div class="admin-gate">
       <p>🔒 管理者パスワードを入力してください</p>
       <div class="flex-row" style="max-width:320px;margin:0 auto">
-        <input type="password" id="admin-pw-input" placeholder="パスワード" onkeydown="if(event.key===&#39;Enter&#39;)checkAdminPw()" style="flex:1">
+        <input type="password" id="admin-pw-input" placeholder="パスワード" onkeydown="if(event.key==='Enter')checkAdminPw()" style="flex:1">
         <button class="btn btn-primary btn-sm" onclick="checkAdminPw()">認証</button>
       </div>
       <p id="admin-pw-err" style="font-size:12px;color:var(--red);margin-top:6px;min-height:16px"></p>
@@ -370,12 +370,12 @@
 
   <!-- モードバー -->
   <div class="mode-bar">
-    <button class="mode-btn active" id="mb-mc" onclick="switchMode(&#39;mc&#39;)">📋 選択式（30問・30点）</button>
-    <button class="mode-btn" id="mb-es" onclick="switchMode(&#39;es&#39;)">✍ 記述式・AI採点（10問・50点）</button>
+    <button class="mode-btn active" id="mb-mc" onclick="switchMode('mc')">📋 選択式（30問・30点）</button>
+    <button class="mode-btn" id="mb-es" onclick="switchMode('es')">✍ 記述式・AI採点（10問・50点）</button>
   </div>
 
   <!-- 選択式パネル -->
-  <div id="mc-panel" class="">
+  <div id="mc-panel">
     <div class="score-summary">
       <div class="score-summary-item">選択式スコア：<strong id="mc-score-disp">0 / 30点</strong></div>
       <div class="score-summary-item" style="color:var(--text3)">1問 = 1点</div>
@@ -387,194 +387,14 @@
     </div>
     <div class="progress"><div class="progress-bar" id="mc-prog" style="width:0%"></div></div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterMC(&#39;all&#39;)">すべて</button>
-      <button class="filter-btn" onclick="filterMC(&#39;電気計測&#39;)">電気計測</button>
-      <button class="filter-btn" onclick="filterMC(&#39;自動制御&#39;)">自動制御</button>
-      <button class="filter-btn" onclick="filterMC(&#39;論理回路&#39;)">論理回路</button>
-      <button class="filter-btn" onclick="filterMC(&#39;計算&#39;)">計算</button>
-      <button class="filter-btn" onclick="filterMC(&#39;未回答&#39;)">未回答のみ</button>
+      <button class="filter-btn active" onclick="filterMC('all')">すべて</button>
+      <button class="filter-btn" onclick="filterMC('電気計測')">電気計測</button>
+      <button class="filter-btn" onclick="filterMC('自動制御')">自動制御</button>
+      <button class="filter-btn" onclick="filterMC('論理回路')">論理回路</button>
+      <button class="filter-btn" onclick="filterMC('計算')">計算</button>
+      <button class="filter-btn" onclick="filterMC('未回答')">未回答のみ</button>
     </div>
-    <div id="mc-list"><div class="q-card" id="mc-qc-1">
-    <div class="q-meta"><span class="q-num">問1</span><span class="q-pts">1点</span><span class="q-tag tag-電気計測">電気計測</span></div>
-    <div class="q-text">永久磁石可動コイル形計器の動作原理として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(1,0)"><span class="opt-label">1.</span><span style="flex:1">固定電磁石の交流磁界と誘導渦電流の相互作用</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(1,1)"><span class="opt-label">2.</span><span style="flex:1">固定永久磁石の磁界と可動コイル内の電流による磁界との相互作用</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(1,2)"><span class="opt-label">3.</span><span style="flex:1">固定電極と可動電極との間に生じる静電力の作用</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(1,3)"><span class="opt-label">4.</span><span style="flex:1">可動コイル内の電流による磁界と固定コイル内の電流による磁界の相互作用</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(1)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-2">
-    <div class="q-meta"><span class="q-num">問2</span><span class="q-pts">1点</span><span class="q-tag tag-電気計測">電気計測</span></div>
-    <div class="q-text">電流力計形計器に関する記述として、不適当なものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(2,0)"><span class="opt-label">1.</span><span style="flex:1">交流専用の計器である</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(2,1)"><span class="opt-label">2.</span><span style="flex:1">電力計として使用できる</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(2,2)"><span class="opt-label">3.</span><span style="flex:1">固定コイルの磁界の中に可動コイルを配置している</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(2,3)"><span class="opt-label">4.</span><span style="flex:1">固定コイルが作る磁界は弱いので、外部磁界の影響を受けやすい</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(2)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-3">
-    <div class="q-meta"><span class="q-num">問3</span><span class="q-pts">1点</span><span class="q-tag tag-電気計測">電気計測</span></div>
-    <div class="q-text">誘導形計器の動作原理として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(3,0)"><span class="opt-label">1.</span><span style="flex:1">固定永久磁石の磁界と可動コイル電流による磁界の相互作用</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(3,1)"><span class="opt-label">2.</span><span style="flex:1">固定電極と可動電極との間に生じる静電力</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(3,2)"><span class="opt-label">3.</span><span style="flex:1">1つ以上の固定電磁石の交流磁界と、この磁界で可動導体中に誘導される渦電流との相互作用</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(3,3)"><span class="opt-label">4.</span><span style="flex:1">可動コイル内の電流と固定コイル電流による磁界の相互作用</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(3)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-4">
-    <div class="q-meta"><span class="q-num">問4</span><span class="q-pts">1点</span><span class="q-tag tag-電気計測">電気計測</span></div>
-    <div class="q-text">静電形計器の主な用途として、適当なものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(4,0)"><span class="opt-label">1.</span><span style="flex:1">電流計</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(4,1)"><span class="opt-label">2.</span><span style="flex:1">電力計</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(4,2)"><span class="opt-label">3.</span><span style="flex:1">電圧計</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(4,3)"><span class="opt-label">4.</span><span style="flex:1">周波数計</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(4)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-5">
-    <div class="q-meta"><span class="q-num">問5</span><span class="q-pts">1点</span><span class="q-tag tag-計算">計算</span></div>
-    <div class="q-text">内部抵抗Ra=1.9Ωの電流計に分流器Rs=0.1Ωを接続したとき、測定範囲は何倍になるか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(5,0)"><span class="opt-label">1.</span><span style="flex:1">10倍</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(5,1)"><span class="opt-label">2.</span><span style="flex:1">20倍</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(5,2)"><span class="opt-label">3.</span><span style="flex:1">30倍</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(5,3)"><span class="opt-label">4.</span><span style="flex:1">40倍</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(5)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-6">
-    <div class="q-meta"><span class="q-num">問6</span><span class="q-pts">1点</span><span class="q-tag tag-計算">計算</span></div>
-    <div class="q-text">最大目盛50mAの電流計に0.1Ωの分流器を付けて1A測定可能にした。電流計の内部抵抗Ra[Ω]は？</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(6,0)"><span class="opt-label">1.</span><span style="flex:1">0.1Ω</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(6,1)"><span class="opt-label">2.</span><span style="flex:1">0.5Ω</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(6,2)"><span class="opt-label">3.</span><span style="flex:1">1.9Ω</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(6,3)"><span class="opt-label">4.</span><span style="flex:1">10Ω</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(6)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-7">
-    <div class="q-meta"><span class="q-num">問7</span><span class="q-pts">1点</span><span class="q-tag tag-計算">計算</span></div>
-    <div class="q-text">最大目盛100mAの電流計に0.1Ωの分流器を付けて500mA測定可能にした。内部抵抗Ra[Ω]は？</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(7,0)"><span class="opt-label">1.</span><span style="flex:1">0.025Ω</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(7,1)"><span class="opt-label">2.</span><span style="flex:1">0.4Ω</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(7,2)"><span class="opt-label">3.</span><span style="flex:1">0.5Ω</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(7,3)"><span class="opt-label">4.</span><span style="flex:1">0.7Ω</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(7)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-8">
-    <div class="q-meta"><span class="q-num">問8</span><span class="q-pts">1点</span><span class="q-tag tag-計算">計算</span></div>
-    <div class="q-text">内部抵抗Rv=1000Ω・最大目盛1Vの電圧計を5V測定可能にする倍率器Rm1[Ω]は？</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(8,0)"><span class="opt-label">1.</span><span style="flex:1">3000Ω</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(8,1)"><span class="opt-label">2.</span><span style="flex:1">4000Ω</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(8,2)"><span class="opt-label">3.</span><span style="flex:1">5000Ω</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(8,3)"><span class="opt-label">4.</span><span style="flex:1">9000Ω</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(8)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-9">
-    <div class="q-meta"><span class="q-num">問9</span><span class="q-pts">1点</span><span class="q-tag tag-計算">計算</span></div>
-    <div class="q-text">2電力計法で三相電力を測定。線間電圧V[V]、線電流I[A]のとき電力計指示P1・P2[W]。力率を表す式は？</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(9,0)"><span class="opt-label">1.</span><span style="flex:1">2VI/(P1+P2)</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(9,1)"><span class="opt-label">2.</span><span style="flex:1">√3VI/(P1+P2)</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(9,2)"><span class="opt-label">3.</span><span style="flex:1">(P1+P2)/(2VI)</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(9,3)"><span class="opt-label">4.</span><span style="flex:1">(P1+P2)/(√3VI)</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(9)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-10">
-    <div class="q-meta"><span class="q-num">問10</span><span class="q-pts">1点</span><span class="q-tag tag-計算">計算</span></div>
-    <div class="q-text">2電力計法：線間電圧200V、線電流30A、W1=4kW、W2=2kW。力率は？</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(10,0)"><span class="opt-label">1.</span><span style="flex:1">0.50</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(10,1)"><span class="opt-label">2.</span><span style="flex:1">0.58</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(10,2)"><span class="opt-label">3.</span><span style="flex:1">0.71</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(10,3)"><span class="opt-label">4.</span><span style="flex:1">1.00</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(10)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-11">
-    <div class="q-meta"><span class="q-num">問11</span><span class="q-pts">1点</span><span class="q-tag tag-電気計測">電気計測</span></div>
-    <div class="q-text">交流・直流両用計器として使用できるものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(11,0)"><span class="opt-label">1.</span><span style="flex:1">永久磁石可動コイル形</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(11,1)"><span class="opt-label">2.</span><span style="flex:1">誘導形</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(11,2)"><span class="opt-label">3.</span><span style="flex:1">可動鉄片形</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(11,3)"><span class="opt-label">4.</span><span style="flex:1">電流力計形（空心形）</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(11)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-12">
-    <div class="q-meta"><span class="q-num">問12</span><span class="q-pts">1点</span><span class="q-tag tag-電気計測">電気計測</span></div>
-    <div class="q-text">熱電対形計器の動作原理として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(12,0)"><span class="opt-label">1.</span><span style="flex:1">測定電流で熱せられる熱電対の起電力を用いる</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(12,1)"><span class="opt-label">2.</span><span style="flex:1">固定電極と可動電極との静電力で動作する</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(12,2)"><span class="opt-label">3.</span><span style="flex:1">固定コイルと可動コイルの磁界の相互作用</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(12,3)"><span class="opt-label">4.</span><span style="flex:1">交流磁界と誘導渦電流の相互作用</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(12)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-13">
-    <div class="q-meta"><span class="q-num">問13</span><span class="q-pts">1点</span><span class="q-tag tag-電気計測">電気計測</span></div>
-    <div class="q-text">デジタル計器の特徴として、誤っているものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(13,0)"><span class="opt-label">1.</span><span style="flex:1">有効桁数が多く精度がよい</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(13,1)"><span class="opt-label">2.</span><span style="flex:1">ノイズの影響を受けにくい</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(13,2)"><span class="opt-label">3.</span><span style="flex:1">コンピュータに接続してデータ処理できる</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(13,3)"><span class="opt-label">4.</span><span style="flex:1">読み取りの個人差がない</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(13)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-14">
-    <div class="q-meta"><span class="q-num">問14</span><span class="q-pts">1点</span><span class="q-tag tag-電気計測">電気計測</span></div>
-    <div class="q-text">三相200V電動機回路の電流計について内線規程上、最も不適当なものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(14,0)"><span class="opt-label">1.</span><span style="flex:1">最大使用電流の約150%の定格目盛の電流計を使用した</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(14,1)"><span class="opt-label">2.</span><span style="flex:1">進相用コンデンサを周囲温度40℃以下の場所に取り付けた</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(14,2)"><span class="opt-label">3.</span><span style="flex:1">3.7kW誘導電動機の始動方式を直入始動とした</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(14,3)"><span class="opt-label">4.</span><span style="flex:1">0.2kW電動機の電源をコンセントから供給した</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(14)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-15">
-    <div class="q-meta"><span class="q-num">問15</span><span class="q-pts">1点</span><span class="q-tag tag-電気計測">電気計測</span></div>
-    <div class="q-text">三相回路の電力を(n-1)個の単相電力計で測定できるという原理の名称は？</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(15,0)"><span class="opt-label">1.</span><span style="flex:1">ケルビン法</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(15,1)"><span class="opt-label">2.</span><span style="flex:1">ブロンデルの定理</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(15,2)"><span class="opt-label">3.</span><span style="flex:1">ホイートストンブリッジ</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(15,3)"><span class="opt-label">4.</span><span style="flex:1">クランプ法</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(15)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-16">
-    <div class="q-meta"><span class="q-num">問16</span><span class="q-pts">1点</span><span class="q-tag tag-自動制御">自動制御</span></div>
-    <div class="q-text">開ループ制御の説明として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(16,0)"><span class="opt-label">1.</span><span style="flex:1">フィードバックで制御量を目標値と比較し操作量を生成する</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(16,1)"><span class="opt-label">2.</span><span style="flex:1">フィードバックループがなく制御量を考慮せずに操作量を決定する</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(16,2)"><span class="opt-label">3.</span><span style="flex:1">目標値・外乱情報に基づいて操作量を決定する</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(16,3)"><span class="opt-label">4.</span><span style="flex:1">比例・積分・微分動作の3つによる制御</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(16)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-17">
-    <div class="q-meta"><span class="q-num">問17</span><span class="q-pts">1点</span><span class="q-tag tag-自動制御">自動制御</span></div>
-    <div class="q-text">フィードバック制御の説明として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(17,0)"><span class="opt-label">1.</span><span style="flex:1">フィードバックループがなく制御量を考慮しない</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(17,1)"><span class="opt-label">2.</span><span style="flex:1">フィードバックで制御量を目標値と比較し操作量を生成する</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(17,2)"><span class="opt-label">3.</span><span style="flex:1">あらかじめ定められた順序で各段階を逐次進める</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(17,3)"><span class="opt-label">4.</span><span style="flex:1">制御量として機械的位置または角度を扱う</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(17)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-18">
-    <div class="q-meta"><span class="q-num">問18</span><span class="q-pts">1点</span><span class="q-tag tag-自動制御">自動制御</span></div>
-    <div class="q-text">シーケンス制御の説明として、最も適当なものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(18,0)"><span class="opt-label">1.</span><span style="flex:1">フィードバックで制御量を常に目標値と一致させる</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(18,1)"><span class="opt-label">2.</span><span style="flex:1">あらかじめ定められた順序または手続きに従い各段階を逐次進める</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(18,2)"><span class="opt-label">3.</span><span style="flex:1">目標値・外乱情報で先読み操作量を決定する</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(18,3)"><span class="opt-label">4.</span><span style="flex:1">比例・積分・微分動作を組み合わせた制御</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(18)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-19">
-    <div class="q-meta"><span class="q-num">問19</span><span class="q-pts">1点</span><span class="q-tag tag-自動制御">自動制御</span></div>
-    <div class="q-text">フィードフォワード制御の説明として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(19,0)"><span class="opt-label">1.</span><span style="flex:1">フィードバックループがなく制御量を考慮しない</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(19,1)"><span class="opt-label">2.</span><span style="flex:1">フィードバックで制御量を目標値と比較する</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(19,2)"><span class="opt-label">3.</span><span style="flex:1">目標値、外乱などの情報に基づいて操作量を決定する</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(19,3)"><span class="opt-label">4.</span><span style="flex:1">あらかじめ定められた順序で各段階を進める</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(19)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-20">
-    <div class="q-meta"><span class="q-num">問20</span><span class="q-pts">1点</span><span class="q-tag tag-自動制御">自動制御</span></div>
-    <div class="q-text">定値制御の説明として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(20,0)"><span class="opt-label">1.</span><span style="flex:1">目標値を一定に保ち外乱に対し制御対象を一定にする</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(20,1)"><span class="opt-label">2.</span><span style="flex:1">対象物の移動に従い目標値が常に変化する</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(20,2)"><span class="opt-label">3.</span><span style="flex:1">あらかじめ定められた変化をする目標値に追従させる</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(20,3)"><span class="opt-label">4.</span><span style="flex:1">温度・流量等を制御量として外乱の抑制を主目的とする</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(20)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-21">
-    <div class="q-meta"><span class="q-num">問21</span><span class="q-pts">1点</span><span class="q-tag tag-自動制御">自動制御</span></div>
-    <div class="q-text">PID制御について正しい説明はどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(21,0)"><span class="opt-label">1.</span><span style="flex:1">比例動作のみの制御</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(21,1)"><span class="opt-label">2.</span><span style="flex:1">比例と積分動作の2つの制御</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(21,2)"><span class="opt-label">3.</span><span style="flex:1">比例・積分・微分動作の3つの動作による制御</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(21,3)"><span class="opt-label">4.</span><span style="flex:1">積分と微分動作の2つの制御</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(21)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-22">
-    <div class="q-meta"><span class="q-num">問22</span><span class="q-pts">1点</span><span class="q-tag tag-自動制御">自動制御</span></div>
-    <div class="q-text">自動制御の安定性の説明として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(22,0)"><span class="opt-label">1.</span><span style="flex:1">入力一定のとき出力も一定値に落ちつく</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(22,1)"><span class="opt-label">2.</span><span style="flex:1">何らかの原因で平衡状態からはずれても原因消滅後に元に戻る</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(22,2)"><span class="opt-label">3.</span><span style="flex:1">適切な操作で有限時間内に任意の状態に移動できる</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(22,3)"><span class="opt-label">4.</span><span style="flex:1">出力の有限時間観測で全状態変数を知れる</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(22)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-23">
-    <div class="q-meta"><span class="q-num">問23</span><span class="q-pts">1点</span><span class="q-tag tag-自動制御">自動制御</span></div>
-    <div class="q-text">プロセス制御の説明として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(23,0)"><span class="opt-label">1.</span><span style="flex:1">機械的な位置または角度を制御量とする</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(23,1)"><span class="opt-label">2.</span><span style="flex:1">温度・流量・圧力等を制御量とし外乱抑制を主目的とする</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(23,2)"><span class="opt-label">3.</span><span style="flex:1">あらかじめ定められた順序で各段階を進める</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(23,3)"><span class="opt-label">4.</span><span style="flex:1">目標値を一定に保つ</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(23)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-24">
-    <div class="q-meta"><span class="q-num">問24</span><span class="q-pts">1点</span><span class="q-tag tag-自動制御">自動制御</span></div>
-    <div class="q-text">フィードバック結合の合成伝達関数（G1前向き・G2フィードバック・負帰還）として正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(24,0)"><span class="opt-label">1.</span><span style="flex:1">G=G1+G2</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(24,1)"><span class="opt-label">2.</span><span style="flex:1">G=G1-G2</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(24,2)"><span class="opt-label">3.</span><span style="flex:1">G=G1/(1+G1G2)</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(24,3)"><span class="opt-label">4.</span><span style="flex:1">G=G1/(1-G1G2)</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(24)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-25">
-    <div class="q-meta"><span class="q-num">問25</span><span class="q-pts">1点</span><span class="q-tag tag-論理回路">論理回路</span></div>
-    <div class="q-text">AND回路（論理積回路）について、正しい説明はどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(25,0)"><span class="opt-label">1.</span><span style="flex:1">入力AまたはBいずれかが1のとき出力が1</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(25,1)"><span class="opt-label">2.</span><span style="flex:1">入力AとBがともに1のとき出力が1</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(25,2)"><span class="opt-label">3.</span><span style="flex:1">入力AとBいずれか1つが1のとき出力が0</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(25,3)"><span class="opt-label">4.</span><span style="flex:1">入力AとBが両方1のとき出力が0</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(25)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-26">
-    <div class="q-meta"><span class="q-num">問26</span><span class="q-pts">1点</span><span class="q-tag tag-論理回路">論理回路</span></div>
-    <div class="q-text">NOR回路について、正しい説明はどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(26,0)"><span class="opt-label">1.</span><span style="flex:1">両方0のとき出力が0</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(26,1)"><span class="opt-label">2.</span><span style="flex:1">両方1のとき出力が1</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(26,2)"><span class="opt-label">3.</span><span style="flex:1">いずれか1つが1のとき出力が0、両方0のとき出力が1</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(26,3)"><span class="opt-label">4.</span><span style="flex:1">いずれか1つが0のとき出力が1</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(26)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-27">
-    <div class="q-meta"><span class="q-num">問27</span><span class="q-pts">1点</span><span class="q-tag tag-論理回路">論理回路</span></div>
-    <div class="q-text">A=0,B=0→X=1、A=0,B=1→X=1、A=1,B=0→X=1、A=1,B=1→X=0 の真理値表に対応する回路は？</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(27,0)"><span class="opt-label">1.</span><span style="flex:1">OR回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(27,1)"><span class="opt-label">2.</span><span style="flex:1">AND回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(27,2)"><span class="opt-label">3.</span><span style="flex:1">NOR回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(27,3)"><span class="opt-label">4.</span><span style="flex:1">NAND回路</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(27)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-28">
-    <div class="q-meta"><span class="q-num">問28</span><span class="q-pts">1点</span><span class="q-tag tag-論理回路">論理回路</span></div>
-    <div class="q-text">リレーa接点が並列に接続されている回路に対応する論理回路は？</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(28,0)"><span class="opt-label">1.</span><span style="flex:1">AND回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(28,1)"><span class="opt-label">2.</span><span style="flex:1">OR回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(28,2)"><span class="opt-label">3.</span><span style="flex:1">NOT回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(28,3)"><span class="opt-label">4.</span><span style="flex:1">NAND回路</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(28)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-29">
-    <div class="q-meta"><span class="q-num">問29</span><span class="q-pts">1点</span><span class="q-tag tag-論理回路">論理回路</span></div>
-    <div class="q-text">インターロック回路の説明として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(29,0)"><span class="opt-label">1.</span><span style="flex:1">一度押されるとON状態を維持する回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(29,1)"><span class="opt-label">2.</span><span style="flex:1">決められた順序以外の誤った操作を防止するための回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(29,2)"><span class="opt-label">3.</span><span style="flex:1">設定時間後に接点を開閉する継電器を用いた回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(29,3)"><span class="opt-label">4.</span><span style="flex:1">2つのa接点を直列に接続した回路</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(29)" disabled="">解答する</button>
-    </div></div><div class="q-card" id="mc-qc-30">
-    <div class="q-meta"><span class="q-num">問30</span><span class="q-pts">1点</span><span class="q-tag tag-論理回路">論理回路</span></div>
-    <div class="q-text">自己保持回路の説明として、正しいものはどれか。</div>
-    <div class="options"><div class="opt" onclick="mcSelectOpt(30,0)"><span class="opt-label">1.</span><span style="flex:1">2つのa接点を直列にした回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(30,1)"><span class="opt-label">2.</span><span style="flex:1">BS2とリレー接点MCを並列接続し、BS2を押すとBS2を離してもON状態を維持する回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(30,2)"><span class="opt-label">3.</span><span style="flex:1">誤った操作防止にb接点を用いた回路</span><span class="opt-icon"></span></div><div class="opt" onclick="mcSelectOpt(30,3)"><span class="opt-label">4.</span><span style="flex:1">設定時間後に接点開閉する限時継電器を用いた回路</span><span class="opt-icon"></span></div></div>
-    <div class="q-actions">
-      <button class="btn btn-primary" style="" onclick="mcCheckAns(30)" disabled="">解答する</button>
-    </div></div></div>
+    <div id="mc-list"></div>
     <div id="mc-done" class="done-banner hidden">
       <div class="done-title">選択式テスト完了！</div>
       <div class="done-score" id="mc-final-score">0</div>
@@ -582,14 +402,14 @@
       <div class="done-sub" id="mc-final-msg" style="margin-top:6px"></div>
       <div class="done-actions">
         <button class="btn btn-primary" onclick="resetMC()">やり直す</button>
-        <button class="btn btn-groq" onclick="switchMode(&#39;es&#39;)">✍ 記述式に挑戦</button>
+        <button class="btn btn-groq" onclick="switchMode('es')">✍ 記述式に挑戦</button>
       </div>
     </div>
   </div>
 
   <!-- 記述式パネル -->
   <div id="es-panel" class="hidden">
-    <div id="no-api-notice" class="notice notice-amber">⚠ Groq APIキーが未設定です。管理者設定から登録するとAI採点が利用できます。</div>
+    <div id="no-api-notice" class="notice notice-amber hidden">⚠ Groq APIキーが未設定です。管理者設定から登録するとAI採点が利用できます。</div>
     <div class="notice notice-purple">✍ <strong>記述式・Groq AI採点モード</strong>　解答を入力して「AI採点」を押してください。採点後、間違いがあった場合は自動的にフィードバックが表示されます。</div>
     <div class="score-summary">
       <div class="score-summary-item">記述式スコア：<strong id="es-score-disp">0 / 50点</strong></div>
@@ -601,157 +421,7 @@
       <div class="stat"><span id="es-remain">10</span>残り</div>
     </div>
     <div class="progress"><div class="progress-bar" id="es-prog" style="width:0%"></div></div>
-    <div id="es-list"><div class="q-card" id="es-qc-1">
-    <div class="q-meta">
-      <span class="q-num">記述問1</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-電気計測">電気計測</span>
-      
-      
-    </div>
-    <div class="q-text">永久磁石可動コイル形計器の動作原理と、この計器が直流専用である理由を説明しなさい。</div>
-    <textarea id="es-ta-1" placeholder="ここに解答を記述してください…" oninput="esState[1].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div><div class="q-card" id="es-qc-2">
-    <div class="q-meta">
-      <span class="q-num">記述問2</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-電気計測">電気計測</span>
-      
-      
-    </div>
-    <div class="q-text">分流器を用いて電流計の測定範囲を拡大する原理を説明し、内部抵抗Ra=1.9Ω、分流器Rs=0.1Ωの場合の倍率mを求めなさい。</div>
-    <textarea id="es-ta-2" placeholder="ここに解答を記述してください…" oninput="esState[2].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div><div class="q-card" id="es-qc-3">
-    <div class="q-meta">
-      <span class="q-num">記述問3</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-電気計測">電気計測</span>
-      
-      
-    </div>
-    <div class="q-text">2電力計法（ブロンデルの定理）を用いて平衡三相負荷の力率を求める式を導き、その原理を説明しなさい。</div>
-    <textarea id="es-ta-3" placeholder="ここに解答を記述してください…" oninput="esState[3].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div><div class="q-card" id="es-qc-4">
-    <div class="q-meta">
-      <span class="q-num">記述問4</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-自動制御">自動制御</span>
-      
-      
-    </div>
-    <div class="q-text">開ループ制御と閉ループ制御（フィードバック制御）の違いを具体例を挙げて説明しなさい。</div>
-    <textarea id="es-ta-4" placeholder="ここに解答を記述してください…" oninput="esState[4].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div><div class="q-card" id="es-qc-5">
-    <div class="q-meta">
-      <span class="q-num">記述問5</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-自動制御">自動制御</span>
-      
-      
-    </div>
-    <div class="q-text">PID制御の各動作（P・I・D）の役割をそれぞれ説明しなさい。</div>
-    <textarea id="es-ta-5" placeholder="ここに解答を記述してください…" oninput="esState[5].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div><div class="q-card" id="es-qc-6">
-    <div class="q-meta">
-      <span class="q-num">記述問6</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-自動制御">自動制御</span>
-      
-      
-    </div>
-    <div class="q-text">シーケンス制御の定義と、AND回路・OR回路・自己保持回路・インターロック回路の役割を説明しなさい。</div>
-    <textarea id="es-ta-6" placeholder="ここに解答を記述してください…" oninput="esState[6].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div><div class="q-card" id="es-qc-7">
-    <div class="q-meta">
-      <span class="q-num">記述問7</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-自動制御">自動制御</span>
-      
-      
-    </div>
-    <div class="q-text">フィードバック制御系の合成伝達関数 G=G1/(1+G1G2) を導出しなさい（G1：前向き要素、G2：フィードバック要素、負帰還）。</div>
-    <textarea id="es-ta-7" placeholder="ここに解答を記述してください…" oninput="esState[7].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div><div class="q-card" id="es-qc-8">
-    <div class="q-meta">
-      <span class="q-num">記述問8</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-自動制御">自動制御</span>
-      
-      
-    </div>
-    <div class="q-text">自動制御の安定性・自己平衡性・可制御性・可観測性のうち2つを選んで説明しなさい。</div>
-    <textarea id="es-ta-8" placeholder="ここに解答を記述してください…" oninput="esState[8].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div><div class="q-card" id="es-qc-9">
-    <div class="q-meta">
-      <span class="q-num">記述問9</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-電気計測">電気計測</span>
-      
-      
-    </div>
-    <div class="q-text">誘導形計器の動作原理と、この計器が電力量計に使用される理由を説明しなさい。</div>
-    <textarea id="es-ta-9" placeholder="ここに解答を記述してください…" oninput="esState[9].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div><div class="q-card" id="es-qc-10">
-    <div class="q-meta">
-      <span class="q-num">記述問10</span><span class="q-pts">5点満点</span>
-      <span class="q-tag tag-電気計測">電気計測</span>
-      
-      
-    </div>
-    <div class="q-text">デジタル計器とアナログ計器の長所・短所をそれぞれ3点ずつ挙げて比較しなさい。</div>
-    <textarea id="es-ta-10" placeholder="ここに解答を記述してください…" oninput="esState[10].ans=this.value"></textarea>
-    <div class="q-actions">
-      <button class="btn " onclick="alert(&#39;Groq APIキーが未設定です。管理者設定から登録してください。&#39;)">
-        APIキー未設定
-      </button>
-    </div>
-    
-  </div></div>
+    <div id="es-list"></div>
     <div id="es-done" class="done-banner hidden">
       <div class="done-title">記述式テスト完了！</div>
       <div class="done-score" id="es-final-score">0</div>
@@ -773,19 +443,17 @@ const MODEL_KEY='denkiGroqModel';
 const GROQ_URL='https://api.groq.com/openai/v1/chat/completions';
 
 const DEFAULT_PROMPT=`あなたは1級電気工事施工管理技士試験の採点者です。以下の記述式問題を採点してください。
-
-採点基準（合計100点→5点に換算します）：
-- 重要キーワードの使用（最大40点）
-- 内容・原理の正確さ（最大40点）
-- 説明の明確さ・論理性（最大20点）
-
+採点基準：減点方式（1問5点）
+- 重要キーワードの使用（必ず3つ以上のキーワードを設定すること。3つ以上使用で減点なし。2つで減点1、1つで減点2、使用なしで減点3）
+- 内容・原理の正確さ（最大減点3で採点）
+- 説明の明確さ・論理性（最大減点3で採点）
+減点数が5以上で0点とする。
 【問題】{QUESTION}
 【重要キーワード】{KEYWORDS}
 【模範解答】{MODEL_ANSWER}
 【受験者の解答】{STUDENT_ANSWER}
-
-必ずJSON形式のみで返答してください（前後の説明・マークダウン不要）：
-{"score":数値0〜100,"correct":true/false,"feedback":"2〜3文の具体的な評価","missing_points":["不足ポイント1","不足ポイント2"],"improvement":"改善アドバイス1〜2文"}`;
+必ずJSON形式のみで返答してください（前後に説明・マークダウン不要）：
+{"score":数値0〜5の整数,"correct":true/false,"feedback":"2〜3文の具体的な評価","missing_points":["不足ポイント1","不足ポイント2"],"improvement":"改善アドバイス1〜2文"}`;
 
 function getAdminPw(){return localStorage.getItem(ADMIN_PW_KEY)||'admin1234';}
 function getApiKey(){return localStorage.getItem(API_KEY_KEY)||'';}
@@ -913,16 +581,16 @@ const MQ=[
 ];
 
 const EQ=[
-{id:1,tag:"電気計測",text:"永久磁石可動コイル形計器の動作原理と、この計器が直流専用である理由を説明しなさい。",keywords:["永久磁石","可動コイル","磁界","電流","相互作用","直流","平均値"],modelAns:"固定された永久磁石の磁界の中に可動コイルを置き、コイルに電流を流したとき生じる磁界との相互作用（電磁力）でコイルが偏転する。交流電流を流すと電流方向が交互に変わりトルクが正負に変化するため指針が振動するだけで静止しない。そのため直流の平均値を指示する直流専用計器となる。"},
-{id:2,tag:"電気計測",text:"分流器を用いて電流計の測定範囲を拡大する原理を説明し、内部抵抗Ra=1.9Ω、分流器Rs=0.1Ωの場合の倍率mを求めなさい。",keywords:["並列","電圧降下","倍率","20","1.9","0.1"],modelAns:"分流器は電流計と並列に接続し、測定電流の一部を分流して計器への流入電流を減らす。電流計と分流器の電圧降下が等しいことから倍率 m=(Ra+Rs)/Rs が導かれる。Ra=1.9Ω、Rs=0.1Ωのとき m=(1.9+0.1)/0.1=20倍。"},
-{id:3,tag:"電気計測",text:"2電力計法（ブロンデルの定理）を用いて平衡三相負荷の力率を求める式を導き、その原理を説明しなさい。",keywords:["ブロンデル","√3","P1","P2","線間電圧","線電流","力率"],modelAns:"ブロンデルの定理：三相n線式回路の電力は(n-1)個の電力計で測定できる。三相回路では2個の電力計の指示値の代数和として電力が得られる。三相電力P=√3VIcosθ=P1+P2より、力率cosθ=(P1+P2)/(√3VI)。"},
-{id:4,tag:"自動制御",text:"開ループ制御と閉ループ制御（フィードバック制御）の違いを具体例を挙げて説明しなさい。",keywords:["フィードバック","制御量","目標値","比較","偏差","開ループ","閉ループ"],modelAns:"開ループ制御は制御量を検出せずあらかじめ決めた操作量で制御する（例：タイマー式洗濯機、信号機）。外乱に弱い。閉ループ制御は制御量を検出して目標値と比較し偏差に基づいて操作量を修正する（例：エアコン）。外乱に強く精度が高い。"},
-{id:5,tag:"自動制御",text:"PID制御の各動作（P・I・D）の役割をそれぞれ説明しなさい。",keywords:["比例","積分","微分","定常偏差","オフセット","速応性"],modelAns:"P（比例）動作：偏差に比例した操作量を出力。応答は速いが定常偏差が残る。I（積分）動作：偏差の時間積分に比例した操作量を出力。定常偏差を解消するが応答が遅い。D（微分）動作：偏差の変化率に比例した操作量を出力。変化を先読みして速応性を向上させるがノイズに敏感。"},
-{id:6,tag:"自動制御",text:"シーケンス制御の定義と、AND回路・OR回路・自己保持回路・インターロック回路の役割を説明しなさい。",keywords:["順序","逐次","AND","OR","自己保持","インターロック","b接点"],modelAns:"シーケンス制御はあらかじめ定められた順序・手続きに従い各段階を逐次進める制御。AND回路：両接点が閉じたとき動作（直列接続）。OR回路：いずれか接点が閉じれば動作（並列接続）。自己保持回路：一度ONにすると状態を保持する記憶回路。インターロック回路：b接点を用いて誤った操作を防止する回路。"},
-{id:7,tag:"自動制御",text:"フィードバック制御系の合成伝達関数 G=G1/(1+G1G2) を導出しなさい（G1：前向き要素、G2：フィードバック要素、負帰還）。",keywords:["G1","G2","1+G1G2","負帰還","X","Y","伝達関数"],modelAns:"入力をX、出力をYとすると、誤差信号は(X-G2Y)。前向き要素G1を通ると Y=G1(X-G2Y)。展開すると Y=G1X-G1G2Y → Y(1+G1G2)=G1X → G=Y/X=G1/(1+G1G2)。"},
-{id:8,tag:"自動制御",text:"自動制御の安定性・自己平衡性・可制御性・可観測性のうち2つを選んで説明しなさい。",keywords:["安定性","自己平衡性","可制御性","可観測性","平衡状態","復帰"],modelAns:"安定性：何らかの原因で平衡状態からずれても、原因がなくなれば元の平衡状態または定常状態に復帰する特性。自己平衡性：入力が一定の場合、出力も入力に対応した一定値に落ちつく特性。可制御性：系の状態を適切な操作によって有限時間内に任意の状態から別の状態に移動できる特性。可観測性：系の出力を有限時間観測することで全状態変数の成分を知ることができる特性。"},
-{id:9,tag:"電気計測",text:"誘導形計器の動作原理と、この計器が電力量計に使用される理由を説明しなさい。",keywords:["交流磁界","渦電流","アルミ","円板","回転","電力量","比例"],modelAns:"誘導形計器は固定電磁石の交流磁界によってアルミ円板などの可動導体中に渦電流が誘導され、渦電流と磁界の相互作用で円板が連続回転する。円板の回転数が電圧×電流×力率×時間すなわち電力量に比例するため、電力量計（積算電力計）として広く使われる。"},
-{id:10,tag:"電気計測",text:"デジタル計器とアナログ計器の長所・短所をそれぞれ3点ずつ挙げて比較しなさい。",keywords:["有効桁数","精度","ノイズ","読み取り","瞬時値","A/D変換","個人差"],modelAns:"デジタル計器の長所：有効桁数が多く精度がよい、読み取りの個人差がない、コンピュータ接続でデータ処理可能。短所：ノイズに弱い、構成部品が多い、瞬時値の読み取りに不向き。アナログ計器の長所：瞬時値や変化傾向の把握が容易、ノイズに強い、部品が少ない。短所：有効桁数が少ない、読み取りに個人差がある、姿勢の影響を受けやすい。"}
+{id:1,tag:"電気計測",text:"永久磁石可動コイル形計器はなぜ直流専用なのか、理由を説明しなさい。",keywords:["永久磁石","可動コイル","交流","トルク","直流"],modelAns:"固定された永久磁石の磁界の中に可動コイルを置き、電流と磁界の相互作用でコイルが回転する。交流電流を流すと電流の向きが交互に変わり、コイルに加わるトルクが正負に変化して指針が振動するだけで静止しないため、直流専用となる。"},
+{id:2,tag:"電気計測",text:"誘導形計器が電力量計として広く使われる理由を説明しなさい。",keywords:["渦電流","アルミ円板","回転","電力量","比例"],modelAns:"固定電磁石の交流磁界によってアルミ円板に渦電流が誘導され、磁界との相互作用で円板が連続回転する。円板の回転数が電力量（電圧×電流×力率×時間）に比例するため、積算電力計として使われる。"},
+{id:3,tag:"電気計測",text:"分流器の目的と、電流計に分流器を並列接続する理由を説明しなさい。",keywords:["並列","測定範囲","分流","電流計","電圧降下"],modelAns:"分流器は電流計の測定範囲を拡大するために使う。電流計と並列に分流器を接続することで測定電流の一部を分流し、計器に流れ込む電流を減らす。電流計と分流器の電圧降下が等しくなる関係を利用して倍率を決める。"},
+{id:4,tag:"電気計測",text:"デジタル計器のノイズに対する弱点と、アナログ計器が瞬時値の読み取りに優れている理由を説明しなさい。",keywords:["A/D変換","ノイズ","瞬時値","指針","アナログ"],modelAns:"デジタル計器はA/D変換を行うため、ノイズ（雑音）の影響を受けやすく対策が必要である。一方アナログ計器は指針の動きで変化の傾向が直感的に把握でき、瞬時値の読み取りに優れている。"},
+{id:5,tag:"電気計測",text:"2電力計法（ブロンデルの定理）とは何か、原理を説明しなさい。",keywords:["ブロンデル","三相","2個","電力計","代数和"],modelAns:"ブロンデルの定理とは、n相n線式回路の電力は(n-1)個の単相電力計で測定できるという原理である。三相回路では2個の電力計を用い、それぞれの指示値の代数和として三相電力を求める方法が2電力計法である。"},
+{id:6,tag:"自動制御",text:"開ループ制御と閉ループ制御（フィードバック制御）の違いを、それぞれ具体例を挙げて説明しなさい。",keywords:["フィードバック","制御量","目標値","開ループ","閉ループ"],modelAns:"開ループ制御は制御量を検出せず、あらかじめ決めた操作量で動かす制御である（例：タイマー式洗濯機）。閉ループ制御は制御量を検出して目標値と比較し、偏差をなくすように操作量を修正する（例：エアコン）。"},
+{id:7,tag:"自動制御",text:"PID制御のP動作・I動作・D動作それぞれの役割を、キーワードを使って簡潔に説明しなさい。",keywords:["比例","積分","微分","定常偏差","速応性"],modelAns:"P（比例）動作は偏差に比例した操作量を出力し応答が速いが定常偏差が残る。I（積分）動作は偏差を積算して定常偏差を解消する。D（微分）動作は偏差の変化率に応じて先読みし速応性を向上させる。"},
+{id:8,tag:"自動制御",text:"シーケンス制御とはどのような制御か、定義と特徴を説明しなさい。",keywords:["順序","逐次","開ループ","不連続","手続き"],modelAns:"シーケンス制御とは、あらかじめ定められた順序または手続きに従って、制御の各段階を逐次進める制御である。入・切などの不連続量を対象とし、開ループ制御の一種である。PLCなどで広く使われる。"},
+{id:9,tag:"自動制御",text:"自動制御における「安定性」とはどのような特性か説明しなさい。",keywords:["平衡状態","定常状態","復帰","原因","特性"],modelAns:"安定性とは、系の状態が何らかの原因で一時的に平衡状態または定常状態からはずれても、その原因がなくなれば元の状態に復帰するような特性をいう。JIS Z 8116に規定されている。"},
+{id:10,tag:"自動制御",text:"AND回路・OR回路・自己保持回路・インターロック回路のうち2つを選び、それぞれの働きを説明しなさい。",keywords:["AND","OR","自己保持","インターロック","接点"],modelAns:"AND回路：2つのa接点を直列接続し、両方が閉じたときのみ動作する論理積回路。OR回路：2つのa接点を並列接続し、いずれか一方が閉じれば動作する論理和回路。自己保持回路：一度ONにするとスイッチを離してもON状態を保持する記憶回路。インターロック回路：b接点を用いて誤操作を防止し、誤った順序での動作を禁止する回路。"}
 ];
 
 /* ===== 状態 ===== */
@@ -1036,9 +704,9 @@ function renderESCard(q){
     aiHtml=`<div class="ai-loading"><div class="spinner"></div>Groq AI採点中… しばらくお待ちください</div>`;
   } else if(s.aiResult){
     const r=s.aiResult;
-    const pts=Math.round(r.score/100*5*10)/10;
-    const scCls=r.score>=80?'score-a':r.score>=60?'score-b':'score-c';
-    const grade=r.score>=80?'A（優秀）':r.score>=60?'B（良）':'C（要復習）';
+    const pts=r.score;
+    const scCls=r.score>=4?'score-a':r.score>=3?'score-b':'score-c';
+    const grade=r.score>=4?'A（優秀）':r.score>=3?'B（良）':'C（要復習）';
     const missing=r.missing_points&&r.missing_points.length>0
       ?`<div class="ai-section"><strong>不足ポイント：</strong><ul class="missing-list">${r.missing_points.map(p=>`<li>${p}</li>`).join('')}</ul></div>`:'';
 
@@ -1047,10 +715,10 @@ function renderESCard(q){
       fbHtml=`<div class="feedback-box"><div class="fb-label"><div class="spinner" style="border-top-color:var(--red)"></div>フィードバック生成中…</div></div>`;
     } else if(s.fbResult){
       fbHtml=`<div class="feedback-box">
-        <div class="fb-label">⚠ フィードバック（間違いの根本原因と改善策）</div>
+        <div class="fb-label">📋 フィードバック</div>
         <div class="fb-text">${s.fbResult}</div>
       </div>`;
-    } else if(!r.correct||r.score<60){
+    } else if(!r.correct||r.score<3){
       fbHtml=`<div class="fb-input-area">
         <label>あなたがこのように書いた理由・考え（任意・より詳細なFBに役立ちます）：</label>
         <textarea id="fb-ta-${q.id}" style="min-height:60px;font-size:13px" oninput="esState[${q.id}].fbAns=this.value">${s.fbAns||''}</textarea>
@@ -1062,7 +730,7 @@ function renderESCard(q){
       <div class="score-row">
         <span class="score-badge ${scCls}">${pts}点 / 5点</span>
         <span style="font-size:14px;font-weight:700;color:var(--text2)">${grade}</span>
-        <span style="font-size:11px;color:var(--text3)">（換算前：${r.score}点/100点）</span>
+
       </div>
       <div class="ai-section"><strong>AI評価：</strong>${r.feedback}</div>
       ${r.improvement?`<div class="ai-section" style="color:var(--amber-text)">💡 <strong>改善アドバイス：</strong>${r.improvement}</div>`:''}
@@ -1073,8 +741,8 @@ function renderESCard(q){
   }
 
   const resultTag=s.aiResult
-    ?`<span class="q-tag" style="background:${s.aiResult.score>=80?'var(--green-bg)':s.aiResult.score>=60?'var(--amber-bg)':'var(--red-bg)'};color:${s.aiResult.score>=80?'var(--green-text)':s.aiResult.score>=60?'var(--amber-text)':'var(--red-text)'}">
-      ${Math.round(s.aiResult.score/100*5*10)/10}点/5点</span>`:'';
+    ?`<span class="q-tag" style="background:${s.aiResult.score>=4?'var(--green-bg)':s.aiResult.score>=3?'var(--amber-bg)':'var(--red-bg)'};color:${s.aiResult.score>=4?'var(--green-text)':s.aiResult.score>=3?'var(--amber-text)':'var(--red-text)'}">
+      ${s.aiResult.score}点/5点</span>`:'';
 
   return `<div class="q-card" id="es-qc-${q.id}">
     <div class="q-meta">
@@ -1104,6 +772,24 @@ async function esSubmit(id){
   document.getElementById('es-qc-'+id).outerHTML=renderESCard(EQ.find(q=>q.id===id));
   updateESStats();
   const q=EQ.find(x=>x.id===id);
+  const charCount=s.ans.length;
+  const foundKws=q.keywords.filter(kw=>s.ans.includes(kw));
+  const kwFoundCount=foundKws.length;
+
+  /* 無効回答（20文字未満 or 明らかに無意味な文字列）は即0点 */
+  const INVALID_PATTERNS=['test','テスト','わからない','わかりません','不明','空欄','なし'];
+  const isInvalid=charCount<20||INVALID_PATTERNS.some(p=>s.ans.trim().toLowerCase()===p.toLowerCase());
+  if(isInvalid){
+    s.aiResult={score:0,correct:false,feedback:'解答が不十分です（'+charCount+'文字）。問題の内容に沿った記述がありません。模範解答を参考に、キーワードを使いながら説明してください。',missing_points:q.keywords.map(k=>k+'に関する説明'),improvement:'問題文をよく読み、キーワードを3つ以上使って50文字以上で記述することを目指してください。'};
+    s.aiLoading=false;
+    const newEl2=document.createElement('div');
+    newEl2.innerHTML=renderESCard(EQ.find(qq=>qq.id===id));
+    document.getElementById('es-qc-'+id).replaceWith(newEl2.firstChild);
+    updateESStats();
+    await getFeedback(id);
+    return;
+  }
+
   const prompt=getScoringPrompt()
     .replace('{QUESTION}',q.text)
     .replace('{KEYWORDS}',q.keywords.join('、'))
@@ -1111,9 +797,26 @@ async function esSubmit(id){
     .replace('{STUDENT_ANSWER}',s.ans);
   try{
     const text=await callGroq(prompt);
-    const clean=text.replace(/```json|```/g,'').trim();
+    const clean=text.replace(/```json[\s\S]*?```|```/g,'').trim();
     const p=JSON.parse(clean);
-    s.aiResult={score:Math.min(100,Math.max(0,p.score||0)),correct:!!p.correct,feedback:p.feedback||'採点完了',missing_points:p.missing_points||[],improvement:p.improvement||''};
+
+    /* scoreは0〜5の整数として受け取る。範囲外はクランプ */
+    let rawScore=Math.min(5,Math.max(0,Math.round(p.score||0)));
+
+    /* コード側補正：キーワード一致数でスコア上限を設定
+       キーワード0個 → 最大2点、1個 → 最大3点、2個 → 最大4点、3個以上 → 上限なし */
+    if(kwFoundCount===0) rawScore=Math.min(rawScore,2);
+    else if(kwFoundCount===1) rawScore=Math.min(rawScore,3);
+    else if(kwFoundCount===2) rawScore=Math.min(rawScore,4);
+
+    const kwInfo='（キーワード一致：'+kwFoundCount+'/'+q.keywords.length+'個）';
+    s.aiResult={
+      score:rawScore,
+      correct:rawScore>=3,
+      feedback:(p.feedback||'採点完了')+' '+kwInfo,
+      missing_points:p.missing_points||q.keywords.filter(k=>!s.ans.includes(k)).slice(0,3).map(k=>k+'に関する説明が不足'),
+      improvement:p.improvement||''
+    };
   }catch(e){
     s.aiResult={score:0,correct:false,feedback:'採点エラー：'+e.message,missing_points:[],improvement:''};
   }
@@ -1124,7 +827,7 @@ async function esSubmit(id){
   document.getElementById('es-qc-'+id).replaceWith(newEl.firstChild);
   updateESStats();
 
-  if(!s.aiResult.correct||s.aiResult.score<60){
+  if(!s.aiResult.correct||s.aiResult.score<3){
     await getFeedback(id);
   }
 }
@@ -1137,16 +840,17 @@ async function getFeedback(id){
   if(card){card.outerHTML=renderESCard(EQ.find(q=>q.id===id));}
   const q=EQ.find(x=>x.id===id);
   const fbAns=s.fbAns||'';
-  const fbPrompt=`あなたは1級電気工事施工管理技士試験の指導教員です。受験者が記述式問題で不正解でした。以下の情報をもとに、①間違いの根本原因、②正しい理解のポイント、③具体的な学習アドバイス の3点を200〜300文字程度で丁寧に説明してください。
+  const missingKws=q.keywords.filter(k=>!s.ans.includes(k));
+  const fbPrompt=`以下の形式のみで簡潔に返答してください（各項目1文、合計3文以内）。
 
-【問題】${q.text}
+【キーワード】使うべきキーワード：${missingKws.length>0?missingKws.join('・'):'（不足なし）'}
 【模範解答】${q.modelAns}
-【受験者の解答（${s.aiResult.score}点/100点）】${s.ans}
-【AI採点フィードバック】${s.aiResult.feedback}
-【不足ポイント】${(s.aiResult.missing_points||[]).join('、')||'なし'}
-${fbAns?`【受験者の考え・理由】${fbAns}`:''}
+【アドバイス】受験者の解答「${s.ans.slice(0,60)}${s.ans.length>60?'…':''}」に対し、1文で改善点を指摘すること。
 
-文章のみで回答してください（JSONやマークダウン不要）。`;
+返答形式（この3行のみ。他の文章不要）：
+キーワード：〇〇・〇〇・〇〇を使うこと。
+模範解答：（上記の模範解答をそのまま記載）
+アドバイス：（1文で改善点）`;
   try{
     s.fbResult=await callGroq(fbPrompt);
   }catch(e){
@@ -1166,14 +870,14 @@ function updateESStats(){
   document.getElementById('es-remain').textContent=total-submitted;
   document.getElementById('es-prog').style.width=Math.round(submitted/total*100)+'%';
   const totalPts=EQ.filter(q=>esState[q.id].aiResult).reduce((acc,q)=>{
-    return acc+Math.round(esState[q.id].aiResult.score/100*5*10)/10;
+    return acc+(esState[q.id].aiResult.score||0);
   },0);
-  document.getElementById('es-score-disp').textContent=Math.round(totalPts*10)/10+' / 50点';
+  document.getElementById('es-score-disp').textContent=totalPts+' / 50点';
   if(submitted===total&&scored===total){
     document.getElementById('es-done').classList.remove('hidden');
-    document.getElementById('es-final-score').textContent=Math.round(totalPts*10)/10;
-    const avg=Math.round(totalPts/total*100)/100*100;
-    document.getElementById('es-final-msg').textContent=avg>=80?'優秀！全分野よく理解できています。':avg>=60?'苦手分野を重点的に復習しましょう。':'基礎概念を整理して再挑戦しましょう。';
+    document.getElementById('es-final-score').textContent=totalPts;
+    const avg=totalPts/total;
+    document.getElementById('es-final-msg').textContent=avg>=4?'優秀！全分野よく理解できています。':avg>=3?'苦手分野を重点的に復習しましょう。':'基礎概念を整理して再挑戦しましょう。';
     document.getElementById('es-done').scrollIntoView({behavior:'smooth'});
   }
 }
@@ -1187,6 +891,5 @@ function resetES(){
 checkApiNotice();
 renderMCList();
 </script>
-
-
-</body></html>
+</body>
+</html>
